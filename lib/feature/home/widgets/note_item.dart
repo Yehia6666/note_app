@@ -18,6 +18,7 @@ class NoteItem extends StatelessWidget {
           ),
         );
       },
+         
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         margin: EdgeInsets.only(top: 12),
