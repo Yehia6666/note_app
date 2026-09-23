@@ -17,13 +17,5 @@ class NotesCubit extends Cubit<NotesState> {
     emit(NotesSuccess(notes: notes!));
   }
 
-  // void updateNote(NoteModel updatedNote) {
-  //   final index = notes!.indexWhere((note) => note.key == updatedNote.key);
 
-  //   if (index != -1) {
-  //     notes![index] = updatedNote;
-
-  //     emit(NotesSuccess(notes: List.from(notes!)));
-  //   }
-  // }
 }
