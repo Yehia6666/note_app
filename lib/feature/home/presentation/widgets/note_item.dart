@@ -12,15 +12,19 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('DATE FROM NOTE ITEM: ${note.date}');
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
+      onTap: () async {
+        // final updatedNote = await
+        Navigator.push<NoteModel>(
           context,
           MaterialPageRoute(
             builder: (context) {
-              return EditNoteView();
+              return EditNoteView(note: note);
             },
           ),
         );
+        //        if (updatedNote != null && context.mounted) {
+        //   context.read<NotesCubit>().updateNote(updatedNote);
+        // }
       },
 
       child: Container(

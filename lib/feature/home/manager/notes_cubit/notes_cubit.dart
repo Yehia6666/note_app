@@ -7,11 +7,23 @@ import 'package:note_app/feature/home/model/note_model.dart';
 part 'notes_state.dart';
 
 class NotesCubit extends Cubit<NotesState> {
-  NotesCubit() : super(NotesInitial());
+  NotesCubit() : super(NotesInitial()) {
+    fetchAllNotes();
+  }
   List<NoteModel>? notes;
   void fetchAllNotes() async {
     var notesBox = Hive.box<NoteModel>(kNotesBox);
     notes = notesBox.values.toList();
     emit(NotesSuccess(notes: notes!));
   }
+
+  // void updateNote(NoteModel updatedNote) {
+  //   final index = notes!.indexWhere((note) => note.key == updatedNote.key);
+
+  //   if (index != -1) {
+  //     notes![index] = updatedNote;
+
+  //     emit(NotesSuccess(notes: List.from(notes!)));
+  //   }
+  // }
 }
